@@ -1,0 +1,130 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+        <div class="box_element">
+            <div class="cart-row">
+                <a class="btn btn-secondary btn-md my-0 p" type="submit" href="{% url 'store' %}">Continue Shopping  
+                    <i class="fas fa-shopping-cart ml-1"></i>
+                </a>
+               
+                
+        </div>
+            <table  >
+                <tr>
+                    <h5 class="lead font-weight-bold">
+                        Items: <strong>{{order.get_cart_items}}</strong>
+                    </h5>
+                    <h5 class="lead font-weight-bold">
+                        Total: <strong>₱{{order.get_cart_total}}</strong>
+                    </h5 >
+                </tr>
+
+            </table>
+        <div class="box_element">
+            <div class="cart-row">
+                <a class="btn btn-primary btn-md my-0 p" type="submit" href="{% url 'checkout' %}">Check Out  
+                        <i class="fas fa-check-circle ml-1"></i>
+                </a>
+                   
+                    
+            </div>
+            
+
+
+        </div>
+        <table class="cart-row"></table>
+      <!--Grid row-->
+      {% for item in items %}
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <img src="{{ item.product.imageURL }}" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+       
+
+            <p class="lead">
+             
+              <span>₱{{ item.product.price }}</span>
+            </p>
+
+            <p class="lead font-weight-bold">{{ item.product.name }}</p>
+
+           
+
+            <form class="d-flex justify-content-left">
+              <!-- Default input -->
+              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+
+              
+
+            </form>
+
+            <p class="lead font-weight-bold"></p>
+            <p class="lead font-weight-bold">Total: ₱ {{item.get_total}}</p>
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+      {% endfor %}
+      <hr>
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 text-center">
+
+          <h4 class="my-4 h4">Additional information</h4>
+
+          <p>Grapika Rizal is created in San Juan, Muntalban, Rizal</p>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.6476483452516!2d121.13237571420818!3d14.732502177781777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397bb188b4552b9%3A0xe5a9f33cb3382499!2sGrapika%20Rizal!5e0!3m2!1sen!2sph!4v1614233744384!5m2!1sen!2sph" width="1110" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+
+
+
+</html>
+{% endblock content %}

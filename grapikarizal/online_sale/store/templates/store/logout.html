@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+{% load crispy_forms_tags%}
+{% load static %}
+{% block content %}
+
+	<section class="container" style="padding-top: 100px; padding-bottom: 45px;"><!--form-->
+		<div class="container">
+			<div class="row" >
+				<div class="col-sm-6 col-sm-offset-3 " style="text-align: center; display: inline-block;">
+                    <div style="padding: 30px;">
+                        <h2>You have been logged out</h2>
+                        <small class="col-sm-offset-3" >
+     
+                            <a href="{% url 'login' %}">Log In Again</a>
+                        </small>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+	
+{% endblock content %}
